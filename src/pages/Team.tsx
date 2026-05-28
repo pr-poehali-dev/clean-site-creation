@@ -57,7 +57,7 @@ const values = [
 
 export default function Team() {
   return (
-    <div className="min-h-screen bg-brand-light">
+    <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero */}
@@ -79,20 +79,20 @@ export default function Team() {
       </section>
 
       {/* Team grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((member, i) => (
               <div
                 key={member.name}
-                className="card-hover bg-brand-light rounded-2xl p-7 border border-transparent hover:border-brand-teal/20 animate-fade-up"
+                className="card-hover bg-card rounded-2xl p-7 border border-border hover:border-brand-teal/20 animate-fade-up"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 {/* Avatar */}
                 <div className="w-16 h-16 rounded-2xl bg-brand-teal/10 flex items-center justify-center text-3xl mb-5">
                   {member.emoji}
                 </div>
-                <h3 className="font-montserrat font-bold text-lg text-brand-dark mb-1">
+                <h3 className="font-montserrat font-bold text-lg text-foreground mb-1">
                   {member.name}
                 </h3>
                 <p className="font-inter text-sm font-medium text-brand-teal mb-3">
@@ -105,7 +105,7 @@ export default function Team() {
                   {member.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="bg-white text-brand-dark font-inter text-xs font-medium px-3 py-1 rounded-full border border-border"
+                      className="bg-background text-foreground font-inter text-xs font-medium px-3 py-1 rounded-full border border-border"
                     >
                       {skill}
                     </span>
@@ -118,7 +118,7 @@ export default function Team() {
       </section>
 
       {/* Mission */}
-      <section className="py-20 bg-brand-light">
+      <section className="py-20 bg-muted/40">
         <div className="container mx-auto px-6">
           <div className="bg-brand-dark rounded-3xl p-10 md:p-16 relative overflow-hidden">
             <div className="absolute inset-0 brand-pattern opacity-20" />
@@ -143,9 +143,9 @@ export default function Team() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
-          <h2 className="font-montserrat font-black text-3xl text-brand-dark text-center mb-12">
+          <h2 className="font-montserrat font-black text-3xl text-foreground text-center mb-12">
             Наши ценности
           </h2>
           <div className="flex flex-wrap justify-center gap-6">
@@ -158,7 +158,7 @@ export default function Team() {
                 <div className="w-16 h-16 rounded-2xl bg-brand-teal/10 flex items-center justify-center mx-auto mb-4">
                   <Icon name={v.icon} size={26} className="text-brand-teal" fallback="Star" />
                 </div>
-                <h3 className="font-montserrat font-bold text-base text-brand-dark mb-1">{v.title}</h3>
+                <h3 className="font-montserrat font-bold text-base text-foreground mb-1">{v.title}</h3>
                 <p className="font-inter text-xs text-muted-foreground">{v.desc}</p>
               </div>
             ))}

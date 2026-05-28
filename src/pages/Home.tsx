@@ -49,7 +49,7 @@ const courses = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-brand-light">
+    <div className="min-h-screen bg-background">
       <Header />
 
       {/* HERO */}
@@ -108,7 +108,7 @@ export default function Home() {
       </section>
 
       {/* FEATURES */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="font-montserrat font-black text-3xl md:text-4xl text-brand-dark mb-4">
@@ -122,13 +122,13 @@ export default function Home() {
             {features.map((f, i) => (
               <div
                 key={f.title}
-                className={`card-hover bg-brand-light rounded-2xl p-7 border border-transparent hover:border-brand-teal/20 animate-fade-up`}
+                className={`card-hover bg-card rounded-2xl p-7 border border-border hover:border-brand-teal/20 animate-fade-up`}
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 <div className="w-12 h-12 rounded-xl bg-brand-teal/10 flex items-center justify-center mb-5">
                   <Icon name={f.icon} size={22} className="text-brand-teal" fallback="Star" />
                 </div>
-                <h3 className="font-montserrat font-bold text-lg text-brand-dark mb-2">{f.title}</h3>
+                <h3 className="font-montserrat font-bold text-lg text-foreground mb-2">{f.title}</h3>
                 <p className="font-inter text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
               </div>
             ))}
@@ -137,11 +137,11 @@ export default function Home() {
       </section>
 
       {/* COURSES PREVIEW */}
-      <section className="py-24 bg-brand-light">
+      <section className="py-24 bg-muted/40">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <div>
-              <h2 className="font-montserrat font-black text-3xl md:text-4xl text-brand-dark mb-3">
+              <h2 className="font-montserrat font-black text-3xl md:text-4xl text-foreground mb-3">
                 Популярные курсы
               </h2>
               <p className="font-inter text-muted-foreground">
@@ -157,15 +157,15 @@ export default function Home() {
             {courses.map((course, i) => (
               <div
                 key={course.title}
-                className={`card-hover bg-white rounded-2xl overflow-hidden shadow-sm animate-fade-up`}
+                className={`card-hover bg-card rounded-2xl overflow-hidden shadow-sm animate-fade-up`}
                 style={{ animationDelay: `${i * 0.15}s` }}
               >
                 <div className={`h-2 ${course.color}`} />
                 <div className="p-6">
-                  <span className="inline-block bg-brand-light text-brand-teal font-inter text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  <span className="inline-block bg-muted text-brand-teal font-inter text-xs font-semibold px-3 py-1 rounded-full mb-4">
                     {course.tag}
                   </span>
-                  <h3 className="font-montserrat font-bold text-xl text-brand-dark mb-2">
+                  <h3 className="font-montserrat font-bold text-xl text-foreground mb-2">
                     {course.title}
                   </h3>
                   <p className="font-inter text-sm text-muted-foreground mb-6 leading-relaxed">
@@ -206,7 +206,7 @@ export default function Home() {
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-white text-brand-teal px-10 py-4 rounded-xl font-montserrat font-bold text-lg hover:bg-brand-light transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+            className="inline-block bg-white text-brand-teal px-10 py-4 rounded-xl font-montserrat font-bold text-lg hover:bg-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
           >
             Начать бесплатно
           </Link>

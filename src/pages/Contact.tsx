@@ -46,7 +46,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-brand-light">
+    <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero */}
@@ -73,7 +73,7 @@ export default function Contact() {
 
             {/* Contact info */}
             <div className="lg:col-span-2 animate-fade-up">
-              <h2 className="font-montserrat font-bold text-2xl text-brand-dark mb-8">
+              <h2 className="font-montserrat font-bold text-2xl text-foreground mb-8">
                 Контактная информация
               </h2>
               <div className="space-y-5 mb-10">
@@ -89,12 +89,12 @@ export default function Contact() {
                           href={item.link}
                           target={item.link.startsWith('http') ? '_blank' : undefined}
                           rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className="font-inter font-medium text-brand-dark hover:text-brand-teal transition-colors underline-offset-2 hover:underline"
+                          className="font-inter font-medium text-foreground hover:text-brand-teal transition-colors underline-offset-2 hover:underline"
                         >
                           {item.value}
                         </a>
                       ) : (
-                        <p className="font-inter font-medium text-brand-dark">{item.value}</p>
+                        <p className="font-inter font-medium text-foreground">{item.value}</p>
                       )}
                     </div>
                   </div>
@@ -121,10 +121,10 @@ export default function Contact() {
 
             {/* Form */}
             <div className="lg:col-span-3 animate-fade-up delay-200">
-              <div className="bg-white rounded-2xl shadow-sm p-8 md:p-10">
+              <div className="bg-card rounded-2xl shadow-sm p-8 md:p-10 border border-border">
                 {!submitted ? (
                   <>
-                    <h2 className="font-montserrat font-bold text-2xl text-brand-dark mb-2">
+                    <h2 className="font-montserrat font-bold text-2xl text-foreground mb-2">
                       Напишите нам
                     </h2>
                     <p className="font-inter text-muted-foreground text-sm mb-8">
@@ -134,7 +134,7 @@ export default function Contact() {
                     <form onSubmit={handleSubmit} className="space-y-5">
                       {/* Name */}
                       <div>
-                        <label className="block font-inter font-medium text-sm text-brand-dark mb-1.5">
+                        <label className="block font-inter font-medium text-sm text-foreground mb-1.5">
                           Ваше имя <span className="text-red-400">*</span>
                         </label>
                         <input
@@ -142,8 +142,8 @@ export default function Contact() {
                           placeholder="Иван Иванов"
                           value={form.name}
                           onChange={(e) => handleChange('name', e.target.value)}
-                          className={`w-full px-4 py-3 rounded-xl border font-inter text-sm outline-none transition-all duration-200
-                            focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 bg-brand-light
+                          className={`w-full px-4 py-3 rounded-xl border font-inter text-sm outline-none transition-all duration-200 text-foreground
+                            focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 bg-muted
                             ${errors.name ? 'border-red-400' : 'border-border'}`}
                         />
                         {errors.name && (
@@ -153,7 +153,7 @@ export default function Contact() {
 
                       {/* Email */}
                       <div>
-                        <label className="block font-inter font-medium text-sm text-brand-dark mb-1.5">
+                        <label className="block font-inter font-medium text-sm text-foreground mb-1.5">
                           Email <span className="text-red-400">*</span>
                         </label>
                         <input
@@ -161,8 +161,8 @@ export default function Contact() {
                           placeholder="ivan@example.com"
                           value={form.email}
                           onChange={(e) => handleChange('email', e.target.value)}
-                          className={`w-full px-4 py-3 rounded-xl border font-inter text-sm outline-none transition-all duration-200
-                            focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 bg-brand-light
+                          className={`w-full px-4 py-3 rounded-xl border font-inter text-sm outline-none transition-all duration-200 text-foreground
+                            focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 bg-muted
                             ${errors.email ? 'border-red-400' : 'border-border'}`}
                         />
                         {errors.email && (
@@ -172,13 +172,13 @@ export default function Contact() {
 
                       {/* Subject */}
                       <div>
-                        <label className="block font-inter font-medium text-sm text-brand-dark mb-1.5">
+                        <label className="block font-inter font-medium text-sm text-foreground mb-1.5">
                           Тема
                         </label>
                         <select
                           value={form.subject}
                           onChange={(e) => handleChange('subject', e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl border border-border font-inter text-sm outline-none transition-all duration-200 focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 bg-brand-light text-brand-dark"
+                          className="w-full px-4 py-3 rounded-xl border border-border font-inter text-sm outline-none transition-all duration-200 focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 bg-muted text-foreground"
                         >
                           <option value="">Выберите тему</option>
                           <option value="courses">Вопрос о курсах</option>
@@ -190,7 +190,7 @@ export default function Contact() {
 
                       {/* Message */}
                       <div>
-                        <label className="block font-inter font-medium text-sm text-brand-dark mb-1.5">
+                        <label className="block font-inter font-medium text-sm text-foreground mb-1.5">
                           Сообщение <span className="text-red-400">*</span>
                         </label>
                         <textarea
@@ -198,8 +198,8 @@ export default function Contact() {
                           rows={5}
                           value={form.message}
                           onChange={(e) => handleChange('message', e.target.value)}
-                          className={`w-full px-4 py-3 rounded-xl border font-inter text-sm outline-none transition-all duration-200 resize-none
-                            focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 bg-brand-light
+                          className={`w-full px-4 py-3 rounded-xl border font-inter text-sm outline-none transition-all duration-200 resize-none text-foreground
+                            focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 bg-muted
                             ${errors.message ? 'border-red-400' : 'border-border'}`}
                         />
                         {errors.message && (

@@ -100,7 +100,7 @@ export default function Courses() {
     : courses.filter((c) => c.cat === activeCategory);
 
   return (
-    <div className="min-h-screen bg-brand-light">
+    <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero */}
@@ -122,7 +122,7 @@ export default function Courses() {
       </section>
 
       {/* Filter */}
-      <section className="bg-white border-b border-border sticky top-16 z-40">
+      <section className="bg-card border-b border-border sticky top-16 z-40">
         <div className="container mx-auto px-6">
           <div className="flex gap-2 overflow-x-auto py-4 no-scrollbar">
             {categories.map((cat) => (
@@ -132,7 +132,7 @@ export default function Courses() {
                 className={`flex-shrink-0 px-5 py-2 rounded-full font-inter font-medium text-sm transition-all duration-200 ${
                   activeCategory === cat
                     ? 'bg-brand-teal text-white shadow-md shadow-brand-teal/30'
-                    : 'bg-brand-light text-brand-dark hover:bg-brand-teal/10 hover:text-brand-teal'
+                    : 'bg-muted text-foreground hover:bg-brand-teal/10 hover:text-brand-teal'
                 }`}
               >
                 {cat}
@@ -151,19 +151,19 @@ export default function Courses() {
       <section className="py-16">
         <div className="container mx-auto px-6">
           <p className="font-inter text-sm text-muted-foreground mb-6">
-            Найдено курсов: <span className="font-semibold text-brand-dark">{filtered.length}</span>
+            Найдено курсов: <span className="font-semibold text-foreground">{filtered.length}</span>
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((course, i) => (
               <div
                 key={course.id}
-                className="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-transparent hover:border-brand-teal/20 animate-fade-up"
+                className="card-hover bg-card rounded-2xl overflow-hidden shadow-sm border border-border hover:border-brand-teal/20 animate-fade-up"
                 style={{ animationDelay: `${Math.min(i * 0.05, 0.5)}s` }}
               >
                 <div className={`h-1.5 ${course.color}`} />
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
-                    <span className="inline-block bg-brand-light text-muted-foreground font-inter text-xs font-medium px-3 py-1 rounded-full">
+                    <span className="inline-block bg-muted text-muted-foreground font-inter text-xs font-medium px-3 py-1 rounded-full">
                       {course.cat}
                     </span>
                     {course.tag && (
@@ -172,7 +172,7 @@ export default function Courses() {
                       </span>
                     )}
                   </div>
-                  <h3 className="font-montserrat font-bold text-xl text-brand-dark mb-2">
+                  <h3 className="font-montserrat font-bold text-xl text-foreground mb-2">
                     {course.title}
                   </h3>
                   <p className="font-inter text-sm text-muted-foreground mb-5 leading-relaxed">

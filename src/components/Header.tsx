@@ -38,8 +38,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-brand-light'
-          : 'bg-white/80 backdrop-blur-sm'
+          ? 'bg-background/95 backdrop-blur-md shadow-sm border-b border-border'
+          : 'bg-background/80 backdrop-blur-sm'
       }`}
     >
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
@@ -62,7 +62,7 @@ export default function Header() {
                 className={`nav-link font-inter font-medium text-sm flex items-center gap-1 py-2 ${
                   location.pathname === item.path
                     ? 'text-brand-teal active'
-                    : 'text-brand-dark hover:text-brand-teal'
+                    : 'text-foreground hover:text-brand-teal'
                 }`}
               >
                 {item.label}
@@ -128,14 +128,14 @@ export default function Header() {
             className="p-2 rounded-lg hover:bg-brand-light transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            <Icon name={mobileOpen ? 'X' : 'Menu'} size={22} className="text-brand-dark" />
+            <Icon name={mobileOpen ? 'X' : 'Menu'} size={22} className="text-foreground" />
           </button>
         </div>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-brand-light animate-slide-down">
+        <div className="md:hidden bg-background border-t border-border animate-slide-down">
           <nav className="container mx-auto px-6 py-4 flex flex-col gap-1">
             {navItems.map((item) => (
               <div key={item.path}>
@@ -143,14 +143,14 @@ export default function Header() {
                   to={item.path}
                   className={`block px-4 py-3 rounded-lg font-inter font-medium text-sm transition-colors ${
                     location.pathname === item.path
-                      ? 'bg-brand-light text-brand-teal'
-                      : 'text-brand-dark hover:bg-brand-light'
+                      ? 'bg-muted text-brand-teal'
+                      : 'text-foreground hover:bg-muted'
                   }`}
                 >
                   {item.label}
                 </Link>
                 {item.dropdown && (
-                  <div className="ml-4 border-l-2 border-brand-light pl-3 mt-1 mb-2 flex flex-col gap-1">
+                  <div className="ml-4 border-l-2 border-border pl-3 mt-1 mb-2 flex flex-col gap-1">
                     {item.dropdown.slice(1).map((sub) => (
                       <Link
                         key={sub.path}
@@ -164,7 +164,7 @@ export default function Header() {
                 )}
               </div>
             ))}
-            <div className="pt-3 border-t border-brand-light mt-2">
+            <div className="pt-3 border-t border-border mt-2">
               <Link
                 to="/contact"
                 className="btn-primary block text-center px-5 py-3 rounded-xl font-montserrat font-semibold text-sm"

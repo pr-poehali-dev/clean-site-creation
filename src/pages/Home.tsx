@@ -6,7 +6,7 @@ import Icon from '@/components/ui/icon';
 
 const stats = [
   { value: '12 000+', label: 'Студентов обучились' },
-  { value: '85+', label: 'Курсов в каталоге' },
+  { value: '67+', label: 'Курсов в каталоге' },
   { value: '97%', label: 'Довольных выпускников' },
   { value: '5 лет', label: 'Опыта на рынке' },
 ];

@@ -11,10 +11,10 @@ interface FormData {
 }
 
 const contactInfo = [
-  { icon: 'Mail', label: 'Email', value: 'stroganov.ilya09@gmail.com' },
-  { icon: 'Phone', label: 'Телефон', value: '+7 (977) 727-67-64' },
-  { icon: 'Send', label: 'Telegram', value: '@flafik77rus' },
-  { icon: 'MapPin', label: 'Адрес', value: 'Москва, Россия' },
+  { icon: 'Mail', label: 'Email', value: 'stroganov.ilya09@gmail.com', link: 'mailto:stroganov.ilya09@gmail.com' },
+  { icon: 'Phone', label: 'Телефон', value: '+7 (977) 727-67-64', link: 'tel:+79777276764' },
+  { icon: 'Send', label: 'Telegram', value: '@flafik77rus', link: 'https://t.me/flafik77rus' },
+  { icon: 'MapPin', label: 'Адрес', value: 'Москва, Россия', link: null },
 ];
 
 export default function Contact() {
@@ -84,7 +84,18 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-inter text-xs text-muted-foreground mb-0.5">{item.label}</p>
-                      <p className="font-inter font-medium text-brand-dark">{item.value}</p>
+                      {item.link ? (
+                        <a
+                          href={item.link}
+                          target={item.link.startsWith('http') ? '_blank' : undefined}
+                          rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          className="font-inter font-medium text-brand-dark hover:text-brand-teal transition-colors underline-offset-2 hover:underline"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="font-inter font-medium text-brand-dark">{item.value}</p>
+                      )}
                     </div>
                   </div>
                 ))}

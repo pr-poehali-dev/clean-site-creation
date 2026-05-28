@@ -67,15 +67,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Icon name="Mail" size={16} className="text-brand-green mt-0.5 flex-shrink-0" />
-                <span className="font-inter text-sm text-white/70">info@progress-edu.ru</span>
+                <span className="font-inter text-sm text-white/70">stroganov.ilya09@gmail.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <Icon name="Phone" size={16} className="text-brand-green mt-0.5 flex-shrink-0" />
-                <span className="font-inter text-sm text-white/70">+7 (800) 555-00-00</span>
+                <span className="font-inter text-sm text-white/70">+7 (977) 727-67-64</span>
               </li>
               <li className="flex items-start gap-3">
-                <Icon name="MapPin" size={16} className="text-brand-green mt-0.5 flex-shrink-0" />
-                <span className="font-inter text-sm text-white/70">Москва, Россия</span>
+                <Icon name="Send" size={16} className="text-brand-green mt-0.5 flex-shrink-0" />
+                <span className="font-inter text-sm text-white/70">@flafik77rus</span>
               </li>
             </ul>
           </div>

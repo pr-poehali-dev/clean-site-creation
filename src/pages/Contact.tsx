@@ -11,10 +11,10 @@ interface FormData {
 }
 
 const contactInfo = [
-  { icon: 'Mail', label: 'Email', value: 'info@progress-edu.ru' },
-  { icon: 'Phone', label: 'Телефон', value: '+7 (800) 555-00-00' },
+  { icon: 'Mail', label: 'Email', value: 'stroganov.ilya09@gmail.com' },
+  { icon: 'Phone', label: 'Телефон', value: '+7 (977) 727-67-64' },
+  { icon: 'Send', label: 'Telegram', value: '@flafik77rus' },
   { icon: 'MapPin', label: 'Адрес', value: 'Москва, Россия' },
-  { icon: 'Clock', label: 'Режим работы', value: 'Пн–Пт, 9:00–19:00' },
 ];
 
 export default function Contact() {
@@ -102,7 +102,7 @@ export default function Contact() {
                     Наш эксперт поможет выбрать подходящую программу лично для вас
                   </p>
                   <p className="font-inter text-brand-green font-medium text-sm">
-                    📞 +7 (800) 555-00-00
+                    📞 +7 (977) 727-67-64
                   </p>
                 </div>
               </div>

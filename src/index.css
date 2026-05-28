@@ -52,6 +52,36 @@
   }
 }
 
+/* Dark theme overrides */
+.dark {
+  --background: 215 30% 8%;
+  --foreground: 210 20% 92%;
+  --card: 215 28% 12%;
+  --card-foreground: 210 20% 92%;
+  --popover: 215 28% 12%;
+  --popover-foreground: 210 20% 92%;
+  --muted: 215 25% 16%;
+  --muted-foreground: 210 15% 60%;
+  --border: 215 20% 20%;
+  --input: 215 20% 20%;
+  --brand-light: #1a2535;
+  --chat-bg: #141e2e;
+  --chat-messages-bg: #0f1820;
+  --chat-border: #1e2d40;
+  --chat-bubble-bg: #1a2535;
+  --chat-bubble-text: #e2e8f0;
+  --chat-input-bg: #0f1820;
+}
+
+:root {
+  --chat-bg: #fff;
+  --chat-messages-bg: #f8fafc;
+  --chat-border: #e5e7eb;
+  --chat-bubble-bg: #fff;
+  --chat-bubble-text: #0d1b2a;
+  --chat-input-bg: #f2f4f7;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -60,6 +90,9 @@
   body {
     @apply bg-background text-foreground;
     font-family: "Inter", sans-serif;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 
   h1,

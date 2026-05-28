@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 import Icon from '@/components/ui/icon';
+import { useTheme } from '@/context/ThemeContext';
 
 const navItems = [
   { label: 'Главная', path: '/' },
@@ -20,6 +21,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -77,12 +79,12 @@ export default function Header() {
 
               {/* Dropdown */}
               {item.dropdown && openDropdown === item.label && (
-                <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-brand-light overflow-hidden animate-slide-down">
+                <div className="absolute top-full left-0 mt-1 w-52 bg-card rounded-xl shadow-xl border border-border overflow-hidden animate-slide-down">
                   {item.dropdown.map((sub) => (
                     <Link
                       key={sub.path}
                       to={sub.path}
-                      className="block px-4 py-3 text-sm font-inter text-brand-dark hover:bg-brand-light hover:text-brand-teal transition-colors"
+                      className="block px-4 py-3 text-sm font-inter text-foreground hover:bg-muted hover:text-brand-teal transition-colors"
                     >
                       {sub.label}
                     </Link>
@@ -93,8 +95,19 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* CTA Button + Theme toggle */}
+        <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 border border-border hover:border-brand-teal/40 bg-background"
+            title={theme === 'light' ? 'Тёмная тема' : 'Светлая тема'}
+          >
+            <Icon
+              name={theme === 'light' ? 'Moon' : 'Sun'}
+              size={17}
+              className="text-muted-foreground hover:text-brand-teal transition-colors"
+            />
+          </button>
           <Link
             to="/contact"
             className="btn-primary px-5 py-2.5 rounded-xl font-montserrat font-600 text-sm"
@@ -103,13 +116,21 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile burger */}
-        <button
-          className="md:hidden p-2 rounded-lg hover:bg-brand-light transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          <Icon name={mobileOpen ? 'X' : 'Menu'} size={22} className="text-brand-dark" />
-        </button>
+        {/* Mobile burger + theme */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg hover:bg-brand-light transition-colors"
+          >
+            <Icon name={theme === 'light' ? 'Moon' : 'Sun'} size={19} className="text-brand-dark" />
+          </button>
+          <button
+            className="p-2 rounded-lg hover:bg-brand-light transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            <Icon name={mobileOpen ? 'X' : 'Menu'} size={22} className="text-brand-dark" />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
